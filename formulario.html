@@ -22,11 +22,12 @@
           <div class="col-md-9 offset-md-3">
             <form action="procesar.php" method="post" name="contacto">
                 <table>
-                  <tr><td><span> Nombre:</span></div></td><td><input type="text" class="form-control" name="Nombre"   placeholder=  "Ingrese su Nombre "  value=""></td></tr>
-                  <tr><td><span> Correo:</span></div></td><td><input type="email" class="form-control" name="Email"   placeholder="Ingrese su correo"  value=""></td></tr>
+                  <tr><td><span> Nombre:</span></div></td><td><input type="text" class="form-control" id="nombre"  name="Nombre"   placeholder=  "Ingrese su Nombre "  value=""></td></tr>
+                  <tr><td><span> Correo:</span></div></td><td><input type="email" class="form-control" id="email" name="Email"   placeholder="Ingrese su correo"  value=""></td></tr>
                   <tr><td><span> RUT:</span></div></td><td><input type="text" class="form-control" id="rut" name="rut"   placeholder="Ingrese su rut "  value=""></td></tr>
-                  <tr><td><span> Contraseña:</span></td><td><input type="password" class="form-control" name="password"   placeholder="Ingrese su contraseña "  value=""></td></tr>
-                  <tr><td><span> Tus comentarios </span></td><td><textarea class="form-control" name="comentarios" id="" cols="30" rows="7"></textarea></td></tr>
+                  <tr><td><span> Contraseña:</span></td><td><input type="password" class="form-control" id="contraseña" name="password"   placeholder="Ingrese su contraseña "  value=""></td></tr>
+				  <tr><td><span> Reingrese su Contraseña:</span></td><td><input type="password" class="form-control" id="reingresocontraseña" name="password2"   placeholder="Ingrese su contraseña nuevamente "  value=""></td></tr>
+                  <tr><td><span> Tus comentarios </span></td><td><textarea class="form-control" name="comentarios" id="comentarios" cols="30" rows="7"></textarea></td></tr>
                   <tr><td></td><td><input class="btn btn-primary" type="submit" name="Enviar"></td></tr>
                 </table>
             </form>
