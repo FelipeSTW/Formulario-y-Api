@@ -9,44 +9,12 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-          <link rel="stylesheet" href="estilos/styleTablaApi.css">
+    <link rel="stylesheet" href="estilos/styleTablaApi.css">
+    
   </head>
   <body>
-    <!-- Barra de navegacion -->
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="index.html"><img src="img/LOGO PEQUEÑO SVG.jpg" alt="" width="30" height="24">SPORTS STATISTICS</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">HOME</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">SALDO Y FICHAS</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  APUESTAS DEPORTIVAS
-                </a>
-                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="">TIPOS DE APUESTAS</a></li>
-                  <li><a class="dropdown-item" href="">ESTADISTICAS DEPORTIVAS</a></li>
-                  <li><a class="dropdown-item" href="">APUESTAS DE FUTBOL</a></li>
-                </ul>
-              </li>
-              
-            </ul>
-            <form class="d-flex">
-              <input class="form-control me-2" type="search" placeholder="Ingresa tu busqueda" aria-label="Search">
-              <button class="btn btn-outline-success" type="submit">APUESTAS DEPORTIVAS</button>
-            </form>
-          </div>
-        </div>
-      </nav>
+    <div id="navega"></div>
 
   <!-- Tabla deporte-->
         <div class="container">
@@ -119,6 +87,10 @@
         
       </div>
 
+      <div id="footer">
+
+      </div>
+
 
 
         <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
@@ -126,6 +98,12 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
       
       <script>
+        $( document ).ready(function(){
+          $("#footer").load("footer.html");
+          $("#navega").load("navbar.html");
+        });
+
+
       //Obtener datos desde la API y mostrarlos en la tabla 1
       $("#enviar").click(function(){
           $.get("https://www.thesportsdb.com/api/v1/json/1/all_sports.php",
