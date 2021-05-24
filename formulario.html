@@ -1,96 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Validación de Formulario con Javascript</title>
-	<link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css">
-	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
-	<link rel="stylesheet" href="estilos/style.css">
-</head>
-<body>
-	<main>
-		<form action="" class="formulario" id="formulario">
-			<!-- Grupo: Usuario -->
-			<div class="formulario__grupo" id="grupo__usuario">
-				<label for="usuario" class="formulario__label">Usuario</label>
-				<div class="formulario__grupo-input">
-					<input type="text" class="formulario__input" name="usuario" id="usuario" placeholder="Andres123">
-					<i class="formulario__validacion-estado fas fa-times-circle"></i>
-				</div>
-				<p class="formulario__input-error">El usuario tiene que ser de 5 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
-			</div>
+<!doctype html>
+<html lang="es">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="estilos/styleTablaApi.css">
 
-			<!-- Grupo: Nombre -->
-			<div class="formulario__grupo" id="grupo__nombre">
-				<label for="nombre" class="formulario__label">Nombre</label>
-				<div class="formulario__grupo-input">
-					<input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="Juan Andrade">
-					<i class="formulario__validacion-estado fas fa-times-circle"></i>
-				</div>
-				<p class="formulario__input-error">El usuario tiene que ser de 5 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
-			</div>
+    <title>FORMULARIO</title>
+  </head>
+  <body>
+      <div id="navega"></div>
 
-			<!-- Grupo: Contraseña -->
-			<div class="formulario__grupo" id="grupo__password">
-				<label for="password" class="formulario__label">Contraseña</label>
-				<div class="formulario__grupo-input">
-					<input type="password" class="formulario__input" name="password" id="password">
-					<i class="formulario__validacion-estado fas fa-times-circle"></i>
-				</div>
-				<p class="formulario__input-error">La contraseña tiene que ser de 5 a 12 dígitos.</p>
-			</div>
+    <div class="container">
 
-			<!-- Grupo: Contraseña 2 -->
-			<div class="formulario__grupo" id="grupo__password2">
-				<label for="password2" class="formulario__label">Repetir Contraseña</label>
-				<div class="formulario__grupo-input">
-					<input type="password" class="formulario__input" name="password2" id="password2">
-					<i class="formulario__validacion-estado fas fa-times-circle"></i>
-				</div>
-				<p class="formulario__input-error">Ambas contraseñas deben ser iguales.</p>
-			</div>
+        <div class="row">
+          <div class="col-md-4 offset-md-4"><h1>FORMULARIO</h1></div>
+        </div>
 
-			<!-- Grupo: Correo Electronico -->
-			<div class="formulario__grupo" id="grupo__correo">
-				<label for="correo" class="formulario__label">Correo Electrónico</label>
-				<div class="formulario__grupo-input">
-					<input type="email" class="formulario__input" name="correo" id="correo" placeholder="correo@correo.com">
-					<i class="formulario__validacion-estado fas fa-times-circle"></i>
-				</div>
-				<p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
-			</div>
+        <div class="row">
+          <div class="col-md-9 offset-md-3">
+            <form action="procesar.php" method="post" name="contacto">
+                <table>
+                  <tr><td><span> Nombre:</span></div></td><td><input type="text" class="form-control" id="nombre"  name="Nombre"   placeholder=  "Ingrese su Nombre "  value=""></td></tr>
+                  <tr><td><span> Correo:</span></div></td><td><input type="email" class="form-control" id="email" name="Email"   placeholder="Ingrese su correo"  value=""></td></tr>
+                  <tr><td><span> RUT:</span></div></td><td><input type="text" class="form-control" id="rut" name="rut"   placeholder="Ingrese su rut "  value=""></td></tr>
+                  <tr><td><span> Contraseña:</span></td><td><input type="password" class="form-control" id="contraseña" name="password"   placeholder="Ingrese su contraseña "  value=""></td></tr>
+				  <tr><td><span> Reingrese su Contraseña:</span></td><td><input type="password" class="form-control" id="reingresocontraseña" name="password2"   placeholder="Ingrese su contraseña nuevamente "  value=""></td></tr>
+                  <tr><td><span> Tus comentarios </span></td><td><textarea class="form-control" name="comentarios" id="comentarios" cols="30" rows="7"></textarea></td></tr>
+                  <tr><td></td><td><input class="btn btn-primary" type="submit" name="Enviar"></td></tr>
+                </table>
+            </form>
+          </div>
+        </div>
 
-			<!-- Grupo: Teléfono -->
-			<div class="formulario__grupo" id="grupo__telefono">
-				<label for="telefono" class="formulario__label">Teléfono</label>
-				<div class="formulario__grupo-input">
-					<input type="text" class="formulario__input" name="telefono" id="telefono" placeholder="5581234857">
-					<i class="formulario__validacion-estado fas fa-times-circle"></i>
-				</div>
-				<p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 14 dígitos.</p>
-			</div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="js/jquery.rut.js"></script>
 
-			<!-- Grupo: Terminos y Condiciones -->
-			<div class="formulario__grupo" id="grupo__terminos">
-				<label class="formulario__label">
-					<input class="formulario__checkbox" type="checkbox" name="terminos" id="terminos">
-					Acepto los Terminos y Condiciones
-				</label>
-			</div>
+    <script>
+      $( document ).ready(function(){
+        $("#navega").load("navbar.html");
+      });
 
-			<div class="formulario__mensaje" id="formulario__mensaje">
-				<p><i class="fas fa-exclamation-triangle"></i> <b>Error:</b> Por favor rellena el formulario correctamente. </p>
-			</div>
+      $(function() {
+    $("#rut").rut().on('rutValido', function(e, rut, dv) {
+        alert("El rut " + rut + "-" + dv + " es correcto");
+    }, { minimumLength: 7} );
 
-			<div class="formulario__grupo formulario__grupo-btn-enviar">
-				<button type="submit" class="formulario__btn">Enviar</button>
-				<p class="formulario__mensaje-exito" id="formulario__mensaje-exito">Formulario enviado exitosamente!</p>
-			</div>
-		</form>
-	</main>git status 
-
-	<script src="js/formulario.js"></script>
-	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
-</body>
+    $("input#rut").rut().on('rutInvalido', function(e) {
+      alert("El rut es inválido");
+  $("#rut").val("");
+        });
+      })
+    </script>
+    
+  </body>
+>>>>>>> cambios_mary
 </html>
