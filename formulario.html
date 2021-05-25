@@ -20,15 +20,20 @@
 
         <div class="row">
           <div class="col-md-9 offset-md-3">
-            <form action="procesar.php" method="post" name="contacto">
+            <form action="procesar.php" method="post" name="contacto" id="formulario">
                 <table>
                   <tr><td><span> Nombre:</span></div></td><td><input type="text" class="form-control" id="nombre"  name="Nombre"   placeholder=  "Ingrese su Nombre "  value=""></td></tr>
+                  <tr><td></td><td><div id="errornombre" class="alert alert-danger"></div></td></tr>
                   <tr><td><span> Correo:</span></div></td><td><input type="email" class="form-control" id="email" name="Email"   placeholder="Ingrese su correo"  value=""></td></tr>
+                  <tr><td></td><td><div id="errorcorreo" class="alert alert-danger"></div></td></tr>
                   <tr><td><span> RUT:</span></div></td><td><input type="text" class="form-control" id="rut" name="rut"   placeholder="Ingrese su rut "  value=""></td></tr>
+                  <tr><td></td><td><div id="errorrut" class="alert alert-danger"></div></td></tr>
                   <tr><td><span> Contraseña:</span></td><td><input type="password" class="form-control" id="contrasena" name="password"   placeholder="Ingrese su contraseña "  value=""></td></tr>
-				  <tr><td><span> Reingrese su Contraseña:</span></td><td><input type="password" class="form-control" id="reingresocontrasena" name="password2"   placeholder="Ingrese su contraseña nuevamente "  value=""></td></tr>
+                  <tr><td></td><td><div id="errorcontrasena" class="alert alert-danger"></div></td></tr>
+                  <tr><td><span> Reingrese su Contraseña:</span></td><td><input type="password" class="form-control" id="reingresocontrasena" name="password2"   placeholder="Ingrese su contraseña nuevamente "  value=""></td></tr>
+                  <tr><td></td><td><div id="errorrecontrasena" class="alert alert-danger"></div></td></tr>
                   <tr><td><span> Tus comentarios </span></td><td><textarea class="form-control" name="comentarios" id="comentarios" cols="30" rows="7"></textarea></td></tr>
-                  <tr><td></td><td><input class="btn btn-primary" type="submit" name="Enviar"></td></tr>
+                  <tr><td></td><td><input class="btn btn-primary" type="submit" name="Enviar" value="Enviar" id="enviar" disabled></td></tr>
                 </table>
             </form>
           </div>
@@ -41,27 +46,108 @@
     <script src="js/jquery.rut.js"></script>
 
     <script>
+        
+        
+
+
+
       $( document ).ready(function(){
         $("#navega").load("navbar.html");
+
+        $("#nombre").blur(function(){
+          if($("#nombre").val()==""){
+            $("#errornombre").show();
+            $("#errornombre").text("Nombre vacio");
+            $("#enviar").attr("disabled", true);
+          }else {
+            $("#errornombre").hide();
+            validar();
+          }
+          
+        });
+
+        $("#email").blur(function(){
+          if($("#email").val()==""){
+            $("#errorcorreo").show();
+            $("#errorcorreo").text("Correo vacio");
+          }else {
+            $("#errorcorreo").hide();
+            validar();
+          }
+          
+        });
+        
+
+        $("#contrasena").blur(function(){
+          if($("#contrasena").val()==""){
+            $("#errorcontrasena").show();
+            $("#errorcontrasena").text("Contraseña vacia");
+          }else {
+            $("#errorcontrasena").hide();
+            validar();
+          }
+          
+        });
+
+        $("#reingresocontrasena").blur(function(){
+          validar();
+        });
+
+
+        
+
+        function validar() {
+          var contra1 = $("#contrasena").val();
+          var contra2 = $("#reingresocontrasena").val();
+
+          if(contra1 !== contra2 && contra2 == ""){
+            $("#errorrecontrasena").show();
+            $("#errorrecontrasena").text("Contraseña no coinciden");
+            return;
+          }else {
+            $("#errorrecontrasena").hide();
+          }
+
+          var nombre = $("#nombre").val();
+          var email = $("#email").val();
+          var rut = $("#rut").val();
+          
+          if(nombre!=="" && email!=="" && rut!=="" && contra1!=="" && contra2!=="") {
+            $("#enviar").removeAttr("disabled");
+          } else {
+            $("#enviar").attr("disabled", true);
+          }
+
+
+        }
+
+
+
       });
 
+<<<<<<< HEAD
 	  //valida contraseña completa
 	$("#contrasena").focusout(function(){
 		if($("#contrasena").val()==""){
 		alert("debe ingresar una contraseña");
 		}
 	});
+=======
 
+>>>>>>> 8b28b682c209dce850603831a951f9a430f60928
+
+      
 
       $(function() {
-		//valida largo rut
-		$("#rut").rut().on('rutValido', function(e, rut, dv) {
-			alert("El rut " + rut + "-" + dv + " es correcto");
-		}, { minimumLength: 7} );
-		//valida dv rut
-		$("input#rut").rut().on('rutInvalido', function(e) {
-		alert("El rut es inválido");
-			});
+        //valida largo rut
+        $("#rut").rut().on('rutValido', function(e, rut, dv) {
+          $("#errorrut").show();
+          $("#errorrut").text("El rut " + rut + "-" + dv + " es correcto");
+        }, { minimumLength: 7} );
+        //valida dv rut
+        $("input#rut").rut().on('rutInvalido', function(e) {
+        alert("El rut es inválido");
+          });
 		})
 
 

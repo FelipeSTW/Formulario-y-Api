@@ -15,3 +15,7 @@
     .table1{
         width: 178%;
     }
+
+    #errornombre, #errorcorreo, #errorrut, #errorcontrasena, #errorrecontrasena {
+        display: none;
+    } 
